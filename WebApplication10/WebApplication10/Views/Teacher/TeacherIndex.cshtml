@@ -1,0 +1,17 @@
+﻿@model WebApplication10.Models.TeacherViewModel
+
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>@Model.TeacherName</h1>
+
+<h2>Course Assignments</h2>
+<ul>
+    @foreach (var assignment in Model.CourseAssignmentViewModels)
+    {
+        <li>@assignment.CourseName - @assignment.StudentName</li>
+    }
+</ul>

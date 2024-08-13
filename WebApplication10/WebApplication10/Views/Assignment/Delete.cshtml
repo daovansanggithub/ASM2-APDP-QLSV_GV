@@ -1,0 +1,26 @@
+﻿
+
+@model WebApplication10.Models.CourseAssignmentViewModel
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete Assignment</h2>
+
+<div>
+    <h4>Are you sure you want to delete this assignment?</h4>
+    <div>
+        <h3>@Model.CourseName</h3>
+        <p><strong>Teacher:</strong> @Model.TeacherName</p>
+        <p><strong>Student:</strong> @Model.StudentName</p>
+    </div>
+
+    <form asp-action="Delete" method="post">
+        <input type="hidden" name="id" value="@Model.CourseAssignmentId" />
+        <button type="submit" class="btn btn-danger">Delete</button>
+        <a href="@Url.Action("Index", "Assignment")" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
+

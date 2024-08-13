@@ -1,0 +1,67 @@
+﻿@model IEnumerable<WebApplication10.Models.CourseAssignmentViewModel>
+
+@{
+    ViewBag.Title = "ListAssignment";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style=" text-align:center">Assign courses to teachers</h2>
+
+<div class="container-xl">
+    <div class="table-responsive">
+        <div class="table-wrapper">
+            <div class="table-title">
+                <div class="row">
+                    <div class="col-sm-5">
+                        <h2>Assignment <b>Management</b></h2>
+                    </div>
+                    <div class="col-sm-7">
+                        <a href="~/Assignment/Create" class="btn btn-secondary"><i class="material-icons">&#xE147;</i> <span>Add New Assignment</span></a>
+                        @* <a href="#" class="btn btn-secondary"><i class="material-icons">&#xE24D;</i> <span>Export to Excel</span></a> *@
+                    </div>
+                </div>
+            </div>
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>@Html.DisplayNameFor(model => model.CourseName)</th>
+                        <th>@Html.DisplayNameFor(model => model.TeacherName)</th>
+
+                        <th>@Html.DisplayNameFor(model => model.StudentName)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.CourseName</td>
+                            <td>@item.TeacherName</td>
+
+                            <td>@item.StudentName</td>
+
+                            <td>
+                        
+                                <a href="~/Assignment/Delete/@item.CourseAssignmentId" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
+                            </td>
+
+                            
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+            <div class="clearfix">
+
+                <ul class="pagination">
+
+                    <li class="page-item active"><a href="#" class="page-link">1</a></li>
+                    <li class="page-item"><a href="#" class="page-link">2</a></li>
+                    <li class="page-item "><a href="#" class="page-link">3</a></li>
+                    <li class="page-item"><a href="#" class="page-link">4</a></li>
+                    <li class="page-item"><a href="#" class="page-link">5</a></li>
+                    <li class="page-item"><a href="#" class="page-link">Next</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
